@@ -5,7 +5,15 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public record NotificationRequest(
-        @NotBlank @Size(min = 2, max = 100) String name,
-        @NotBlank @Email String email,
-        @NotBlank @Size(min = 10, max = 255) String message
+        @NotBlank(message = "Nome é obrigatório")
+        @Size(min = 2, max = 100, message = "Nome deve ter entre 2 e 100 caracteres")
+        String name,
+
+        @NotBlank(message = "Email é obrigatório")
+        @Email(message = "Email inválido")
+        String email,
+
+        @NotBlank(message = "Mensagem é obrigatória")
+        @Size(min = 10, max = 1000, message = "Mensagem deve ter entre 10 e 1000 caracteres")
+        String message
 ) {}
