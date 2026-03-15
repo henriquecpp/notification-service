@@ -1,3 +1,8 @@
 spring:
   application:
     name: notification-api
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      adjust-dates-to-context-time-zone: false
